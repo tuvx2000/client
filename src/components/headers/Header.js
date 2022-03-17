@@ -6,7 +6,7 @@ import Cart from './icon/cart.svg'
 import {Link} from 'react-router-dom'
 
 function Header() {
-    const value = useContext(GlobalState)
+    const state = useContext(GlobalState)
     return (
         <header>
             <div className='menu'>
@@ -31,9 +31,9 @@ function Header() {
 
             <div className = "cart-icon">
                 <span>0</span>
-                <div>
-                    <img src={Cart} alt="" width="30" />
-                </div>
+                <Link to="/cart">
+                        <img src={Cart} alt="" width="30" />
+                </Link>
             </div> 
         </header>
 

@@ -1,5 +1,6 @@
-import React from 'react'
-import {Switch, Route, Routes, Router} from 'react-router-dom'
+import React, {useContext} from 'react'
+import {Switch, Route, Router} from 'react-router-dom'
+import DetailProduct from './detailProduct/DetailProduct'
 
 import Products from './products/Products'
 import Login from './auth/Login'
@@ -11,14 +12,20 @@ import NotFound from './utils/not_found/NotFound'
 import {GlobalState} from '../../GlobalState'
 
 function Pages() {
-    return (
-        <Routes>
-            <Router path="/" exact component={Products} />
-            <Router path="/login" exact component={Login} />
-            <Router path="/register" exact component={Register} />
-            <Router path="/cart" exact component={Cart} />
+    const state = useContext(GlobalState)
 
-        </Routes>
+
+    return (
+        <Switch>
+            <Route path="/" exact component={Products} />
+            <Route path="/Login" exact component={Login} />
+            <Route path="/register" exact component={Register} />
+            <Route path="/cart" exact component={Cart} />
+            <Route path="/detail/:id" exact component={DetailProduct} />
+
+            <Route path="/*" exact component={NotFound} />
+
+        </Switch>
     )
 }
 
