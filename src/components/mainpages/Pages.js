@@ -7,6 +7,8 @@ import Login from './auth/Login'
 import Register from './auth/Register'
 import Cart from './cart/Cart'
 import NotFound from './utils/not_found/NotFound'
+import OrderHistory from './ordersHistory/OrderHistory'
+import OrderDetails from './ordersHistory/OrderDetails'
 
 
 import {GlobalState} from '../../GlobalState'
@@ -16,13 +18,20 @@ function Pages() {
     const [isLogged] = state.userAPI.isLogged
     const [isAdmin] = state.userAPI.isAdmin
 
-    console.log("Pages", isLogged)
+    // console.log("Pages", isLogged)
     return (
         <Switch>
             <Route path="/" exact component={Products} />
             <Route path="/login" exact component={isLogged ? NotFound : Login} />
             <Route path="/register" exact component={isLogged ? NotFound : Register} />
             <Route path="/cart" exact component={Cart} />
+
+            <Route path="/history" exact component={isLogged ? OrderHistory : NotFound} />
+
+            <Route path="/history/:id" exact component={isLogged ? OrderDetails : NotFound} />
+
+
+
             <Route path="/detail/:id" exact component={DetailProduct} />
 
             <Route path="/*" exact component={NotFound} />
