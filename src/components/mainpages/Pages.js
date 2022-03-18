@@ -13,13 +13,15 @@ import {GlobalState} from '../../GlobalState'
 
 function Pages() {
     const state = useContext(GlobalState)
+    const [isLogged] = state.userAPI.isLogged
+    const [isAdmin] = state.userAPI.isAdmin
 
-
+    console.log("Pages", isLogged)
     return (
         <Switch>
             <Route path="/" exact component={Products} />
-            <Route path="/Login" exact component={Login} />
-            <Route path="/register" exact component={Register} />
+            <Route path="/login" exact component={isLogged ? NotFound : Login} />
+            <Route path="/register" exact component={isLogged ? NotFound : Register} />
             <Route path="/cart" exact component={Cart} />
             <Route path="/detail/:id" exact component={DetailProduct} />
 
