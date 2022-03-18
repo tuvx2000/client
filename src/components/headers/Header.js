@@ -10,6 +10,13 @@ import axios from 'axios'
 function Header() {
     const state = useContext(GlobalState)
 
+    // console.log("global",state.userAPI,state.isL)
+    const [isLogged] = state.userAPI.isLogged
+    const [isAdmin] = state.userAPI.isAdmin
+    const [menu, setMenu] = useState(false)
+    const [cart] = state.userAPI.cart
+
+    
     const logoutUser = async () =>{
         await axios.get('/user/logout')
         
@@ -19,11 +26,7 @@ function Header() {
     }
 
  
-    console.log("global",state.userAPI,state.isL)
-    const [isLogged] = state.userAPI.isLogged
-    const [isAdmin] = state.userAPI.isAdmin
-    const [menu, setMenu] = useState(false)
-   const [cart] = state.userAPI.cart
+    
 
 
     const loggedRouter = () =>{

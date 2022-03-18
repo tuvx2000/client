@@ -1,5 +1,10 @@
 import React, {useContext, useState, useEffect} from 'react'
 import {GlobalState} from '../../../GlobalState'
+
+import PaypalButton from './PaypalButton'
+
+
+
 import axios from 'axios'
 
 function Cart() {
@@ -110,7 +115,9 @@ function Cart() {
 
             <div className="total">
                 <h3>Total: $ {total}</h3>
-            
+                <PaypalButton
+                total={total}
+                tranSuccess={tranSuccess} />
             </div>
         </div>
     )
