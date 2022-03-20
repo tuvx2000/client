@@ -10,6 +10,7 @@ import NotFound from './utils/not_found/NotFound'
 import OrderHistory from './ordersHistory/OrderHistory'
 import OrderDetails from './ordersHistory/OrderDetails'
 
+import Categories from './categories/Categories'
 
 import {GlobalState} from '../../GlobalState'
 
@@ -30,7 +31,7 @@ function Pages() {
 
             <Route path="/history/:id" exact component={isLogged ? OrderDetails : NotFound} />
 
-
+            <Route path="/category" exact component={isLogged ? Categories : NotFound} />
 
             <Route path="/detail/:id" exact component={DetailProduct} />
 

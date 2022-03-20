@@ -7,16 +7,24 @@ function UserAPI(token) {
      const [isAdmin, setIsAdmin] = useState(false)
      const [cart, setCart] = useState([])
      const [history, setHistory] = useState([])
+     const [callback,setCallBack] = useState(false)
 
      useEffect(() =>{
         if(token){
             const getUser = async () =>{
+                if(isAdmin){
+                    const res = await axios.get('/api/payment', {
+                        headers: {Authorization: token}
+                    })
+                    setHistory(res.data)
+                    console.log("HISTORY1",res)
+                }else
                 try {
                     const res = await axios.get('/user/history', {
                         headers: {Authorization: token}
                     })
                     setHistory(res.data)
-                    console.log("HISTORY",res)
+                    console.log("HISTORY2",res)
 
                 } catch (err) {
                     alert(err.response.data.msg)
@@ -26,7 +34,7 @@ function UserAPI(token) {
             getUser()
             
         }
-    },[token])
+    },[token,callback,isAdmin])
 
 
 
