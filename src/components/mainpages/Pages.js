@@ -12,6 +12,10 @@ import OrderDetails from './ordersHistory/OrderDetails'
 
 import Categories from './categories/Categories'
 
+import CreateProduct from './createProduct/CreateProduct'
+
+
+
 import {GlobalState} from '../../GlobalState'
 
 function Pages() {
@@ -32,6 +36,10 @@ function Pages() {
             <Route path="/history/:id" exact component={isLogged ? OrderDetails : NotFound} />
 
             <Route path="/category" exact component={isLogged ? Categories : NotFound} />
+
+            <Route path="/create_product" exact component={isLogged ? CreateProduct : NotFound} />
+            <Route path="/edit_product/:id" exact component={isLogged ? CreateProduct : NotFound} />
+
 
             <Route path="/detail/:id" exact component={DetailProduct} />
 

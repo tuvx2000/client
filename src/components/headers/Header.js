@@ -10,14 +10,13 @@ import axios from 'axios'
 function Header() {
     const state = useContext(GlobalState)
 
-    // console.log("global",state.userAPI,state.isL)
     const [isLogged] = state.userAPI.isLogged
     const [isAdmin] = state.userAPI.isAdmin
     const [menu, setMenu] = useState(false)
     const [cart] = state.userAPI.cart
 
     
-    const logoutUser = async () =>{
+    const lougoutuser = async () =>{
         await axios.get('/user/logout')
         
         localStorage.removeItem('firstLogin')
@@ -33,7 +32,7 @@ function Header() {
         return(
             <>
             <li><Link to="/history">History</Link></li>
-            <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
+            <li><Link to="/" onClick={lougoutuser}>Logout</Link></li>
         </>
         )
     }

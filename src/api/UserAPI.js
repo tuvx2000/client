@@ -17,14 +17,14 @@ function UserAPI(token) {
                         headers: {Authorization: token}
                     })
                     setHistory(res.data)
-                    console.log("HISTORY1",res)
+             //       console.log("HISTORY1",res)
                 }else
                 try {
                     const res = await axios.get('/user/history', {
                         headers: {Authorization: token}
                     })
                     setHistory(res.data)
-                    console.log("HISTORY2",res)
+               //     console.log("HISTORY2",res)
 
                 } catch (err) {
                     alert(err.response.data.msg)
