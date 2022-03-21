@@ -19,7 +19,7 @@ function CreateProduct() {
     const [product, setProduct] = useState(initialState)
     const [categories] = state.categoriesAPI.categories
     const [images, setImages] = useState(false)
-    //const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
 
 
     const [isAdmin] = state.userAPI.isAdmin
@@ -30,7 +30,7 @@ function CreateProduct() {
 
     const [products] = state.productsAPI.products
     const [onEdit, setOnEdit] = useState(false)
-    // const [callback, setCallback] = state.productsAPI.callback
+    const [callback, setCallback] = state.productsAPI.callback
 
     useEffect(() => {
         if(param.id){
@@ -65,11 +65,11 @@ function CreateProduct() {
             let formData = new FormData()
             formData.append('file', file)
 
-        //    setLoading(true)
+           setLoading(true)
             const res = await axios.post('/api/upload', formData, {
                 headers: {'content-type': 'multipart/form-data', Authorization: token}
             })
-     //       setLoading(false)
+           setLoading(false)
             setImages(res.data)
 
         } catch (err) {
@@ -80,11 +80,11 @@ function CreateProduct() {
     const handleDestroy = async () => {
         try {
             if(!isAdmin) return alert("You're not an admin")
-       //     setLoading(true)
+           setLoading(true)
             await axios.post('/api/destroy', {public_id: images.public_id}, {
                 headers: {Authorization: token}
             })
-       //     setLoading(false)
+           setLoading(false)
             setImages(false)
         } catch (err) {
             alert(err.response.data.msg)
@@ -111,7 +111,8 @@ function CreateProduct() {
                     headers: {Authorization: token}
                 })
             }
-            // setCallback(!callback)
+            setCallback(!callback)
+            alert("Create succeed!!!")
          //   history.push("/")
         } catch (err) {
             alert(err.response.data.msg)
@@ -126,9 +127,9 @@ function CreateProduct() {
             <div className="upload">
                 <input type="file" name="file" id="file_up" onChange={handleUpload}/>
                 {
-            //        loading ? <div id="file_img"><Loading /></div>
+                   loading ? <div id="file_img"><Loading /></div>
 
-         //           :
+                   :
                     <div id="file_img" style={styleUpload}>
                         <img src={images ? images.url : ''} alt=""/>
                         <span onClick={handleDestroy}>X</span>
