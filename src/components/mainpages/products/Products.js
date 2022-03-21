@@ -6,6 +6,7 @@ import axios from 'axios'
 
 import Filters from './Filters'
 
+import Pagination from './Pagination'
 
 function Products() {
     const state = useContext(GlobalState)
@@ -68,7 +69,7 @@ function Products() {
     return ( 
         <>
         <Filters />
-
+        <Pagination/>
         {
             isAdmin && 
             <div className="delete-all">

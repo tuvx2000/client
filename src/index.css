@@ -34,6 +34,9 @@ button{
   background: transparent;
   cursor: pointer;
 }
+@import url("./components/footer/footer.css");
+
+
 @import url("./components/headers/Header.css");
 /* ------------- Products -------------- */
 
