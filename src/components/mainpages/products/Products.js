@@ -4,6 +4,8 @@ import ProductItem from '../utils/productItem/productItem'
 import Loading from '../utils/loading/Loading'
 import axios from 'axios'
 
+import Filters from './Filters'
+
 
 function Products() {
     const state = useContext(GlobalState)
@@ -65,6 +67,7 @@ function Products() {
     if(loading) return <div><Loading /></div>
     return ( 
         <>
+        <Filters />
 
         {
             isAdmin && 
