@@ -27,6 +27,7 @@
 .delete-all button{
     border: 1px solid crimson;
     padding: 10px 25px;
+    border-radius: 10px;
     color: crimson;
     text-transform: uppercase;
 }

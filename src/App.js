@@ -12,6 +12,7 @@ function App() {
           <div className="App">
             <Header/>
             <MainPages/>
+            <br></br><br></br><br></br>
            <Footer/>
 
           </div>

@@ -8,8 +8,8 @@ const initialState = {
     product_id: '',
     title: '',
     price: 0,
-    description: 'How to and tutorial videos of cool CSS effect, Web Design ideas,JavaScript libraries, Node.',
-    content: 'Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.',
+    description: 'Give the product some description!!!!',
+    content: 'Give long details about your product here!!!',
     category: '',
     _id: ''
 }
@@ -112,7 +112,7 @@ function CreateProduct() {
                 })
             }
             setCallback(!callback)
-            alert("Create succeed!!!")
+            alert("Updated succeed!!!")
          //   history.push("/")
         } catch (err) {
             alert(err.response.data.msg)

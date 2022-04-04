@@ -8,7 +8,7 @@
 .login-page h2{
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #555;
+    color: aquamarine;
 }
 .login-page form input,
 .login-page form button{

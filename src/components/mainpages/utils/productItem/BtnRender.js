@@ -16,20 +16,20 @@ function BtnRender({product,deleteProduct}) {
         {
             isAdmin ? 
             <>
-                <Link id="btn_buy" to={`/`}
+                <Link class="deletebutton" id="btn_buy" to={`/`}
                     onClick={() =>deleteProduct(product._id, product.images.public_id)}>
                     Delete
                 </Link>
-                <Link id="btn_view" to={`/edit_product/${product._id}`}
+                <Link class="editbutton" id="btn_view" to={`/edit_product/${product._id}`}
                 >
                     Edit
                 </Link>
             </>
             : <>
-                <Link id="btn_buy" to="#!" onClick={() => addCart(product)}>
+                <Link id="btn_buy" class="buybutton" to="#!" onClick={() => addCart(product)}>
                     Buy
                 </Link>
-                <Link id="btn_view" to={`/detail/${product._id}`}>
+                <Link class="viewbutton" id="btn_view" to={`/detail/${product._id}`}>
                     View
                 </Link>
             </>
